@@ -1,0 +1,4 @@
+Pipeline,Accuracy,Precision,Recall,F1_Weighted,F1_Fake,F1_Genuine,F1_Suspicious
+Rule-Based Baseline,0.34,0.1156,0.34,0.1725,0.0,0.5075,0.0
+"Single XGBoost (No Anomaly, No SMOTE)",0.9667,0.9667,0.9667,0.9665,0.9706,0.9773,0.953
+Hybrid Pipeline (IsoForest + SMOTE + XGBoost),0.9689,0.9689,0.9689,0.9688,0.9706,0.9805,0.9562
