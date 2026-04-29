@@ -14,8 +14,20 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # ─── Paths (update if needed) ─────────────────────────────────
-INPUT_FILE  = r"C:\Users\anitt\OneDrive\Desktop\Fraud detection\Fraud-Discount-Detection\output\module2_ml_ready.csv"
-OUTPUT_FILE = r"C:\Users\anitt\OneDrive\Desktop\Fraud detection\Fraud-Discount-Detection\output\module3_predictions.csv"
+import os
+
+# --- DYNAMIC PATH SETUP (Paste this here) ---
+# This automatically finds your project folder on YOUR computer
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
+
+INPUT_FILE  = os.path.join(OUTPUT_DIR, "module2_ml_ready.csv")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "module3_predictions.csv")
+
+# Create the output folder if it doesn't exist
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# --------------------------------------------
 
 LABEL_MAP   = {0: 'Fake', 1: 'Genuine', 2: 'Suspicious'}
 

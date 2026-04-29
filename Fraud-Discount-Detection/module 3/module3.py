@@ -24,10 +24,22 @@ from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 
 # ─── Paths ────────────────────────────────────────────────────
-INPUT_FILE  = r"C:\Users\anitt\OneDrive\Desktop\Fraud detection\Fraud-Discount-Detection\output\module2_ml_ready.csv"
-OUTPUT_DIR  = r"C:\Users\anitt\OneDrive\Desktop\Fraud detection\Fraud-Discount-Detection\output\plots"
+import os
+import pandas as pd
+
+# 1. Define the base project directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 2. Define the output folder path
+OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+# 3. FIX: Define the INPUT_FILE that the code is looking for
+# This links Module 3 to the data created by Module 2
+INPUT_FILE = os.path.join(OUTPUT_DIR, "module2_ml_ready.csv")
+
+# Now this line will work without a PermissionError
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 LABEL_NAMES = ['Fake', 'Genuine', 'Suspicious']
 
 # ─── 1. Load Data ─────────────────────────────────────────────

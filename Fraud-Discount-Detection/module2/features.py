@@ -47,7 +47,10 @@ warnings.filterwarnings("ignore")
 np.random.seed(42)
 
 # ─── Paths — must match Module 1 output exactly ───────────────────────────────
-MODULE1_CSV  = os.path.join("output", "module1_features.csv")
+import os
+# This tells the code to look "up" one level for the output folder
+BASE_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
+MODULE1_CSV = os.path.join(BASE_DIR, "module1_features.csv")
 DB_PATH      = "price_monitor.db"
 OUT_DIR      = "output"
 PLOT_DIR     = os.path.join(OUT_DIR, "plots")
